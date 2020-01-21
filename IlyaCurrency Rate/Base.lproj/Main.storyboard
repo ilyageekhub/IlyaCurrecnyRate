@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RSh-Db-Thm">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="cPS-yJ-Qw8">
+            <objects>
+                <tabBarController id="RSh-Db-Thm" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KFl-XU-UK8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="OeI-Rs-VGB" kind="relationship" relationship="viewControllers" id="1s2-pI-1hw"/>
+                        <segue destination="WxQ-pk-dje" kind="relationship" relationship="viewControllers" id="5rp-mv-75y"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tk5-Nm-xto" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="396" y="121"/>
+        </scene>
+        <!--Currecy Rate-->
+        <scene sceneID="NT6-2D-kXB">
+            <objects>
+                <tableViewController id="oxf-Xz-Zhr" customClass="CurrencyViewController" customModule="IlyaCurrencyRate" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="sww-b0-LOx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="oxf-Xz-Zhr" id="yzs-NY-p8Z"/>
+                            <outlet property="delegate" destination="oxf-Xz-Zhr" id="rTb-mt-CQe"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Currecy Rate" id="HRs-ll-2Ta">
+                        <barButtonItem key="rightBarButtonItem" title="Refresh" id="J2n-PZ-1d8">
+                            <connections>
+                                <action selector="actionRefresh:" destination="oxf-Xz-Zhr" id="tSF-08-9xx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="refreshButton" destination="J2n-PZ-1d8" id="NDw-tt-FLY"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Inq-aH-xbd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2083" y="-196"/>
+        </scene>
+        <!--Branches-->
+        <scene sceneID="Lq2-uu-VyB">
+            <objects>
+                <tableViewController id="ejv-uu-Lmd" customClass="BranchViewController" customModule="IlyaCurrencyRate" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8Os-aW-bDP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="1ry-hs-Bcl">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1ry-hs-Bcl" id="37X-IJ-gjw">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ejv-uu-Lmd" id="Vfq-ZI-Il4"/>
+                            <outlet property="delegate" destination="ejv-uu-Lmd" id="gYW-NE-yc9"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Branches" id="Xsg-gS-knL">
+                        <barButtonItem key="rightBarButtonItem" title="Select City" id="tDA-sR-Tgw">
+                            <connections>
+                                <action selector="actionSelectCity:" destination="ejv-uu-Lmd" id="XY0-6F-CoJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="selectCityButton" destination="tDA-sR-Tgw" id="zga-BQ-ivL"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rUq-Wa-wIW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2086" y="451"/>
+        </scene>
+        <!--Branches-->
+        <scene sceneID="U99-xZ-7ga">
+            <objects>
+                <navigationController id="WxQ-pk-dje" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Branches" image="arrow.branch" catalog="system" id="b6y-B9-Pdh"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hdY-Xo-S86">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ejv-uu-Lmd" kind="relationship" relationship="rootViewController" id="mES-bz-dRG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cRT-CG-oxJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1167" y="451"/>
+        </scene>
+        <!--Currencies-->
+        <scene sceneID="GSA-vk-BcP">
+            <objects>
+                <navigationController id="OeI-Rs-VGB" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Currencies" image="dollarsign.circle.fill" catalog="system" id="s0e-J8-DP9"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="t9R-OB-c78">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="oxf-Xz-Zhr" kind="relationship" relationship="rootViewController" id="Zpc-MP-vNC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qhv-tT-HYi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1164" y="-196"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.branch" catalog="system" width="64" height="54"/>
+        <image name="dollarsign.circle.fill" catalog="system" width="64" height="60"/>
+    </resources>
+</document>
